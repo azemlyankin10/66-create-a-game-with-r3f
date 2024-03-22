@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { BlockAxe, BlockLimbo, BlockSpinner, BlockStart, BlockEnd } from './components/Floor';
 import { Bounds } from './components/Bounds';
 
-export const Level = ({ count = 5, types = [BlockSpinner, BlockAxe, BlockLimbo] }) => {
+export const Level = ({ count = 5, types = [BlockSpinner, BlockAxe, BlockLimbo] }, seed = 0) => {
     const blocks = useMemo(() => {
         const blocks = [];
         for (let i = 0; i < count; i++) {
@@ -10,7 +10,7 @@ export const Level = ({ count = 5, types = [BlockSpinner, BlockAxe, BlockLimbo] 
             blocks.push(type);
         }
         return blocks;
-    }, [count, types]);
+    }, [count, types, seed]);
 
     return (
         <>

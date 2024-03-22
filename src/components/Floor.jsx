@@ -4,11 +4,24 @@ import { useRef, useState } from 'react';
 import * as THREE from 'three';
 import { Hamburger } from './Hamburger';
 import { boxGeometry, floor1Material, floor2Material, obstacleMaterial } from '../assets';
-
+import { Float, Text } from '@react-three/drei';
 
 export const BlockStart = ({ position = [0, 0, 0] }) => {
     return (
         <group position={position}>
+            <Float floatIntensity={0.25} rotationIntensity={0.25}>
+                <Text
+                    font='./bebas-neue-v9-latin-regular.woff'
+                    scale={0.5}
+                    maxWidth={0.25}
+                    lineHeight={0.75}
+                    textAlign='right'
+                    position={[0.75, 0.65, 0]}
+                    rotation-y={-0.25}>
+                    Marble Race
+                    <meshBasicMaterial toneMapped={false} />
+                </Text>
+            </Float>
             <mesh
                 receiveShadow
                 geometry={boxGeometry}
@@ -23,6 +36,20 @@ export const BlockStart = ({ position = [0, 0, 0] }) => {
 export const BlockEnd = ({ position = [0, 0, 0] }) => {
     return (
         <group position={position}>
+            <Float floatIntensity={0.25} rotationIntensity={0.25}>
+                <Text
+                    font='./bebas-neue-v9-latin-regular.woff'
+                    scale={1}
+                    // maxWidth={0.25}
+                    // lineHeight={0.75}
+                    // textAlign='right'
+                    position={[0, 2.25, 2]}
+                    // rotation-y={-0.25}
+                >
+                    FINISH
+                    <meshBasicMaterial toneMapped={false} />
+                </Text>
+            </Float>
             <mesh
                 receiveShadow
                 geometry={boxGeometry}
